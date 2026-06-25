@@ -1,0 +1,213 @@
+
+<html>
+<head>
+<style>
+body{
+margin:0;
+font-family: Inter, Arial;
+background:#070A12;
+color:#eaeaea;
+}
+
+nav{
+position:sticky;top:0;
+display:flex;justify-content:space-between;
+padding:14px 26px;
+background:rgba(10,14,25,0.7);
+backdrop-filter: blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.06);
+z-index:1000;
+}
+
+nav a{color:#aaa;margin:0 10px;text-decoration:none;font-size:13px}
+nav a:hover{color:#fff}
+
+.hero{
+padding:100px 20px;
+text-align:center;
+background: radial-gradient(circle at top,#1a2b5f,#070A12 60%);
+}
+
+.hero h1{font-size:54px;margin:0}
+.hero p{max-width:750px;margin:15px auto;color:#b8c0cc}
+
+.badge{
+display:inline-block;
+margin-top:15px;
+padding:6px 12px;
+border:1px solid rgba(255,255,255,0.1);
+border-radius:999px;
+font-size:12px;
+background:rgba(255,255,255,0.04);
+}
+
+.section{
+padding:70px 20px;
+max-width:1050px;
+margin:auto;
+}
+
+h2{color:#7aa8ff;margin-bottom:20px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:16px;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+padding:18px;
+border-radius:14px;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#4f8cff;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+color:#4f8cff;
+text-decoration:none;
+font-size:13px;
+}
+
+.stat{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.stat div{
+background:rgba(255,255,255,0.03);
+padding:10px 14px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.08);
+font-size:12px;
+}
+</style>
+</head>
+<body>
+
+
+<nav>
+<b>I.K. Mamun</b>
+<div>
+<a href="index.html">Home</a>
+<a href="ocp.html">OCP</a>
+<a href="swap.html">Swap</a>
+<a href="olab.html">OLAB</a>
+<a href="cartup.html">Cartup</a>
+<a href="daraz.html">Daraz</a>
+</div>
+</nav>
+
+
+<div class="hero">
+<h1>Designing Digital Products at Scale</h1>
+<p>Design Leader with 10+ years across Daraz (Alibaba), Cartup, OLAB & FRIENDS CORP — building UX systems, product strategy & scalable design teams.</p>
+
+<span class="badge">UX • Product • Systems • Leadership</span>
+
+<div class="stat">
+<div>10+ Years Experience</div>
+<div>5+ Major Platforms</div>
+<div>Enterprise UX Systems</div>
+<div>Design Leadership</div>
+</div>
+</div>
+
+<div class="section">
+<h2>My Journey</h2>
+
+<div class="card">
+From graphic design beginnings → UX/UI evolution → product leadership roles across enterprise platforms.
+</div>
+
+<div class="card">
+Led design at Daraz (Alibaba Group), Cartup marketplace systems, and currently shaping FRIENDS CORP product ecosystem.
+</div>
+
+<div class="card">
+Mentoring designers at Ostad, focusing on real-world UX thinking and portfolio transformation.
+</div>
+</div>
+
+<div class="section">
+<h2>Featured Case Studies</h2>
+
+<div class="grid">
+
+<div class="card">
+<b>OCP Case Study</b>
+<p>Product UX system design</p>
+<a class="btn" href="ocp.html">View Case Study</a>
+</div>
+
+<div class="card">
+<b>Swap Rebranding</b>
+<p>Marketplace redesign system</p>
+<a class="btn" href="swap.html">View Case Study</a>
+</div>
+
+<div class="card">
+<b>OLAB LMS</b>
+<p>Learning platform UX system</p>
+<a class="btn" href="olab.html">View Case Study</a>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>Figma Work</h2>
+
+<div class="grid">
+
+<div class="card"><b>OCP</b><br><a class="btn" href="https://www.figma.com/design/ASORS1L8S1rnKw85DiAPnX/OCP-x-Case-Study">Open</a></div>
+<div class="card"><b>Swap</b><br><a class="btn" href="https://www.figma.com/design/yBNtmfHbxCBzo3a6ICZwkz/Swap-x-Case-Study">Open</a></div>
+<div class="card"><b>OLAB</b><br><a class="btn" href="https://www.figma.com/design/T2sRi9oPnR6c7lYDm9uMWH/Olab---Learning-Management-System">Open</a></div>
+
+</div>
+</div>
+
+
+<div class="section" id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>Email: mamunkhalil@gmail.com</p>
+<p>Location: Dhaka, Bangladesh</p>
+<p>Available for: Remote UX / Product Design Roles</p>
+</div>
+</div>
+
+<script>
+function openProtected(project){
+  let pass = prompt("Enter password for " + project);
+
+  const map = {
+    cartup: "cartup123",
+    daraz: "daraz123"
+  };
+
+  const urls = {
+    cartup: "https://www.figma.com/",
+    daraz: "https://www.figma.com/"
+  };
+
+  if(pass === map[project]){
+    window.open(urls[project], "_blank");
+  } else {
+    alert("Wrong password");
+  }
+}
+</script>
+
+</body>
+</html>
