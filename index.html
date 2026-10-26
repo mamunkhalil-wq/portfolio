@@ -139,14 +139,21 @@ section{padding-block:clamp(56px,8vw,112px)}
 
 /* about */
 .about{background:var(--surface);border-block:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,6vw,96px)}
+.about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"head portrait" "body portrait";column-gap:clamp(24px,6vw,96px);row-gap:0;align-items:start}
+.about-head{grid-area:head}
+.about-body{grid-area:body}
+.portrait-fig{grid-area:portrait;margin:0;max-width:440px;justify-self:end;width:100%}
+.portrait-fig .shot{border-radius:6px}
+.portrait-fig figcaption{margin-top:10px;font-size:13px;color:var(--muted)}
 .about h2{font-size:clamp(34px,5vw,66px)}
 .about .big{font-size:clamp(18px,1.9vw,22px);margin-top:24px;max-width:46ch}
 .about .big+.big{color:var(--muted);font-size:17px;margin-top:16px}
-@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
-.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
-.tl time{font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:3px}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;grid-template-areas:"head" "portrait" "body";row-gap:0}.portrait-fig{justify-self:start;max-width:320px;margin-top:28px}}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}
+@media (max-width:860px){.tl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.tl{grid-template-columns:1fr}}
+.tl li{display:block;padding:18px 0 26px;border-top:1px solid var(--line)}
+.tl time{display:block;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;margin-bottom:6px}
 .tl b{font-size:19px;font-weight:600;letter-spacing:-.02em;display:block}
 .tl span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 .award{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;margin-top:clamp(40px,6vw,80px);padding:clamp(24px,4vw,44px);background:var(--bg);border:1px solid var(--line);border-radius:6px}
@@ -179,6 +186,13 @@ section{padding-block:clamp(56px,8vw,112px)}
 .links{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:32px;font-size:18px}
 .links a{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
 .links a:hover{color:var(--gold)}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:36px;color:var(--paper)}
+.mail-l{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mail a{font-size:clamp(20px,3vw,32px);font-weight:600;letter-spacing:-.02em;text-decoration:none;overflow-wrap:anywhere}
+.mail a:hover{color:var(--gold)}
+.copy{font:inherit;font-size:13px;color:var(--paper);background:none;border:1px solid #3a4145;border-radius:999px;padding:6px 14px;cursor:pointer}
+.copy:hover{border-color:var(--gold)}
+.links{margin-top:20px!important}
 .legal{margin-top:72px;padding-top:20px;border-top:1px solid #2a3034;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;letter-spacing:.1em;color:var(--mute-on-ink)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row::before{transition:none}}
 </style>
@@ -373,14 +387,18 @@ section{padding-block:clamp(56px,8vw,112px)}
 <section id="about" class="about band">
   <div class="wrap">
     <div class="about-grid">
-      <div>
+      <div class="about-head">
         <p class="eyebrow">About</p>
         <h2 style="margin-top:16px">I started in graphic design. Now I work across products, brands and teams.</h2>
+      </div>
+      <figure class="portrait-fig"><img class="shot" src="images/portrait.jpg" width="1000" height="1289" alt="Portrait of IK. Mamun in a navy blazer and white shirt against a dark backdrop" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center 22%"><figcaption>IK. Mamun, Dhaka</figcaption></figure>
+      <div class="about-body">
         <p class="big">I’ve been working in design since 2010. My experience covers rebranding, visual identity, digital product design and creative leadership. I enjoy projects where the brand, the product and the people building them need to work together.</p>
         <p class="big">A clear interface helps people find what they came for. A consistent brand helps them recognize who they are dealing with. I also care about the part after approval: discussing constraints, working with developers and making sure everyone understands the design direction.</p>
-      <figure class="fig portrait-fig"><img class="shot" src="images/portrait.jpg" width="1000" height="1289" alt="Portrait of IK. Mamun in a navy blazer and white shirt against a dark backdrop" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center 25%"></figure>
       </div>
-      <ol class="tl">
+    </div>
+    <p class="eyebrow" style="margin:clamp(40px,6vw,72px) 0 16px">Career, 2010 to now</p>
+    <ol class="tl">
         <li><time>2010–2013</time><div><b>Graphic design</b><span>InfoCraft Ltd. · Prochito IMCL</span></div></li>
         <li><time>2013–2015</time><div><b>Senior UI/UX Designer</b><span>RITL</span></div></li>
         <li><time>2015–2022</time><div><b>Design leadership</b><span>Daraz · Alibaba Group</span></div></li>
@@ -388,7 +406,6 @@ section{padding-block:clamp(56px,8vw,112px)}
         <li><time>2024–now</time><div><b>Head of Design</b><span>Cartup</span></div></li>
         <li><time>2025–now</time><div><b>Design mentorship</b><span>Ostad</span></div></li>
       </ol>
-    </div>
     <div class="award">
       <div class="num" aria-hidden="true">7</div>
       <div><p class="eyebrow">Recognition · 21 June 2022</p><h3 style="margin-top:10px">Daraz Service Milestone Award</h3><p>Seven years of campaigns, launches and rebrands, celebrated on stage at Daraz.</p></div>
@@ -428,6 +445,7 @@ section{padding-block:clamp(56px,8vw,112px)}
     <p class="eyebrow" style="color:var(--gold)">What I bring to the team</p>
     <h2 style="margin-top:16px">Product thinking, visual direction and practical judgment.</h2>
     <p>Experience across teams of different sizes, from a two-person product team to eight designers in a regional rollout.</p>
+    <p class="mail"><span class="mail-l">Email</span><a id="mail" href="mailto:mamunkhalil@gmail.com">mamunkhalil@gmail.com</a><button type="button" id="copy" class="copy">Copy</button></p>
     <div class="links">
       <a href="https://linkedin.com/in/mamunkhalil" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="https://behance.net/mamunkhalil" target="_blank" rel="noopener">Behance ↗</a>
@@ -438,6 +456,9 @@ section{padding-block:clamp(56px,8vw,112px)}
 
 <script>
 (function(){
+  var cp=document.getElementById('copy');
+  if(cp){cp.addEventListener('click',function(){var t='mamunkhalil@gmail.com';function ok(){cp.textContent='Copied';setTimeout(function(){cp.textContent='Copy';},1800);}
+    try{navigator.clipboard.writeText(t).then(ok,function(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var x=window.getSelection();x.removeAllRanges();x.addRange(r);});}catch(e){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var x=window.getSelection();x.removeAllRanges();x.addRange(r);}});}
   var b=document.getElementById('menu'),n=document.getElementById('nav');
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});
   n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false);}});
