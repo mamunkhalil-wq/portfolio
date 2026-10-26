@@ -1,212 +1,447 @@
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="IK. Mamun, Product Designer and Design Leader. Case studies from Daraz, Cartup, OLab, SWAP and Offshore Clipping.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>IK. Mamun Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-body{
-margin:0;
-font-family: Inter, Arial;
-background:#070A12;
-color:#eaeaea;
+/* Concept: an editorial portfolio. One dark opening band (the cover), then a warm paper reading surface.
+   Each project carries its own brand colour; the site chrome stays quiet. */
+:root{
+  --bg:#f8f6f2; --surface:#ffffff; --fg:#152a3c; --muted:#536575; --line:#dcd8cf; --accent:#197db4;
+  --ink:#0e1112; --paper:#f5f2eb; --mute-on-ink:#a9aeac; --gold:#c9a978;
+  --daraz:#c2410c; --cartup:#c42a73; --olab:#7133a7; --swap:#3568d4; --offshore:#0a7fb0;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --gutter:clamp(16px,5vw,64px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101315; --surface:#171b1e; --fg:#f1eee7; --muted:#a3abb0; --line:#2a3034; --accent:#6bc2f0;
+  --daraz:#fb8a52; --cartup:#f06aa7; --olab:#b685e6; --swap:#7ea5f5; --offshore:#52c3ee; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101315; --surface:#171b1e; --fg:#f1eee7; --muted:#a3abb0; --line:#2a3034; --accent:#6bc2f0;
+  --daraz:#fb8a52; --cartup:#f06aa7; --olab:#b685e6; --swap:#7ea5f5; --offshore:#52c3ee; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:0}
+/* full-bleed bands: body gutter is cancelled so bands reach the edge, inner wrapper keeps the gutter */
+.band{margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.03em;line-height:1.05;font-weight:600}
+p{margin:0;max-width:64ch}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--paper)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.mark{font-size:26px;font-weight:700;letter-spacing:-.04em;text-decoration:none}
+.mark span{display:inline-block;width:18px;height:3px;background:var(--gold);margin-left:4px;vertical-align:baseline}
+.nav{display:flex;gap:28px;font-size:14px}
+.nav a{text-decoration:none;color:var(--mute-on-ink);padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--paper);border-color:var(--gold)}
+.menu{display:none;background:none;border:1px solid #3a4145;color:var(--paper);font:inherit;font-size:14px;padding:8px 14px;border-radius:2px;cursor:pointer}
+@media (max-width:760px){
+  .menu{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;background:var(--ink);flex-direction:column;gap:0;padding:8px max(var(--gutter),16px) 20px;border-top:1px solid #2a3034}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid #2a3034;font-size:16px}
 }
 
-nav{
-position:sticky;top:0;
-display:flex;justify-content:space-between;
-padding:14px 26px;
-background:rgba(10,14,25,0.7);
-backdrop-filter: blur(12px);
-border-bottom:1px solid rgba(255,255,255,0.06);
-z-index:1000;
-}
+/* hero */
+.hero{background:var(--ink);color:var(--paper);padding-block:clamp(56px,10vw,120px) clamp(48px,7vw,88px)}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(56px,13vw,176px);font-weight:700;letter-spacing:-.055em;line-height:.9;margin-top:28px}
+.hero .role{font-size:clamp(20px,2.6vw,30px);margin-top:28px;font-weight:500;letter-spacing:-.02em}
+.hero .lede{margin-top:20px;color:var(--mute-on-ink);font-size:clamp(17px,1.6vw,20px);max-width:52ch}
+.focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(40px,6vw,72px);border-top:1px solid #2a3034}
+.focus div{padding:22px 24px 0 0}
+.focus div+div{padding-left:24px;border-left:1px solid #2a3034}
+.focus b{display:block;font-size:clamp(18px,2vw,25px);font-weight:600;letter-spacing:-.02em;color:var(--paper)}
+.focus span{display:block;margin-top:6px;font-size:14px;color:var(--mute-on-ink)}
+.tags{margin-top:36px;font-size:12px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+@media (max-width:760px){.focus{grid-template-columns:1fr}.focus div,.focus div+div{padding:18px 0;border-left:0;border-bottom:1px solid #2a3034}}
 
-nav a{color:#aaa;margin:0 10px;text-decoration:none;font-size:13px}
-nav a:hover{color:#fff}
+/* sections */
+section{padding-block:clamp(56px,8vw,112px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(32px,5vw,64px)}
+.sec-head h2{font-size:clamp(34px,5.4vw,70px)}
+.sec-head p{color:var(--muted)}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;align-items:start}}
 
-.hero{
-padding:100px 20px;
-text-align:center;
-background: radial-gradient(circle at top,#1a2b5f,#070A12 60%);
-}
+/* work index */
+.work{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:56px minmax(0,5fr) minmax(0,5fr) 150px;gap:clamp(16px,3vw,40px);align-items:start;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative}
+.row .n{font-size:13px;font-weight:600;color:var(--c);letter-spacing:.1em;padding-top:8px}
+.row h3{font-size:clamp(26px,3.2vw,42px);color:var(--fg)}
+.row .meta{margin-top:10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.row p{color:var(--muted);padding-top:4px}
+.row .go{justify-self:end;font-size:14px;font-weight:600;color:var(--c);padding-top:8px;white-space:nowrap}
+.row:hover h3{color:var(--c)}
+.row::before{content:"";position:absolute;left:0;top:-1px;width:0;height:3px;background:var(--c);transition:width .35s}
+.row:hover::before{width:100%}
+@media (max-width:860px){.row{grid-template-columns:36px minmax(0,1fr);row-gap:10px}.row p,.row .go{grid-column:2}.row .go{justify-self:start;padding-top:0}}
 
-.hero h1{font-size:54px;margin:0}
-.hero p{max-width:750px;margin:15px auto;color:#b8c0cc}
+/* case studies */
+.case{border-top:1px solid var(--line)}
+.case-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:end}
+.case-top h2{font-size:clamp(36px,6vw,84px);margin-top:18px}
+.case-top .eyebrow{color:var(--c)}
+.case-top p{color:var(--muted);font-size:19px}
+@media (max-width:860px){.case-top{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:clamp(28px,4vw,48px);border-top:2px solid var(--c)}
+.facts div{padding:18px 20px 18px 0}
+.facts b{display:block;font-size:clamp(28px,3.6vw,46px);font-weight:600;letter-spacing:-.04em;color:var(--fg);line-height:1.05}
+.facts span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.body{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,5vw,80px);margin-top:clamp(36px,5vw,64px)}
+.lab{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c);padding-top:6px}
+.txt{padding-bottom:clamp(24px,3vw,40px);border-bottom:1px solid var(--line);margin-bottom:clamp(24px,3vw,40px)}
+.txt p+p{margin-top:14px}
+.txt h3{font-size:clamp(22px,2.4vw,30px);margin-bottom:12px}
+.txt ul{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.txt li{padding-left:20px;position:relative;max-width:66ch}
+.txt li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--c)}
+.txt li b{font-weight:600}
+@media (max-width:760px){.body{grid-template-columns:1fr;gap:0}.lab{padding:0 0 10px}}
+.note{margin-top:8px;font-size:14px;color:var(--muted);max-width:64ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips span{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--fg);background:var(--surface)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.card{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.card b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:8px}
+.card p{font-size:15px;color:var(--muted)}
 
-.badge{
-display:inline-block;
-margin-top:15px;
-padding:6px 12px;
-border:1px solid rgba(255,255,255,0.1);
-border-radius:999px;
-font-size:12px;
-background:rgba(255,255,255,0.04);
-}
 
-.section{
-padding:70px 20px;
-max-width:1050px;
-margin:auto;
-}
+/* image slots: replace each .ph with an <img class="shot"> when images arrive */
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;aspect-ratio:var(--r,16/9);max-width:100%;
+  border:1.5px dashed color-mix(in srgb,var(--c,var(--accent)) 55%,var(--line));border-radius:6px;color:var(--muted);
+  background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--c,var(--accent)) 7%,transparent) 14px 15px),var(--surface)}
+.ph b{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--accent))}
+.ph span{font-size:15px;color:var(--fg);max-width:34ch}
+.ph small{font-size:12px;color:var(--muted)}
+.shot{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.fig{margin:0}.fig figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+.gallery .fig .shot{aspect-ratio:4/3;object-fit:contain;background:#fff}
+.hero-img{margin-top:clamp(28px,4vw,48px)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:16px}
+.gallery .ph{--r:4/3}
+.portrait-fig{margin-top:32px;max-width:420px}
 
-h2{color:#7aa8ff;margin-bottom:20px}
+/* about */
+.about{background:var(--surface);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,6vw,96px)}
+.about h2{font-size:clamp(34px,5vw,66px)}
+.about .big{font-size:clamp(18px,1.9vw,22px);margin-top:24px;max-width:46ch}
+.about .big+.big{color:var(--muted);font-size:17px;margin-top:16px}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.tl time{font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:3px}
+.tl b{font-size:19px;font-weight:600;letter-spacing:-.02em;display:block}
+.tl span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+.award{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;margin-top:clamp(40px,6vw,80px);padding:clamp(24px,4vw,44px);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+.award .num{font-size:clamp(96px,16vw,190px);font-weight:700;line-height:.8;letter-spacing:-.07em;color:var(--gold)}
+.award h3{font-size:clamp(22px,2.6vw,32px)}
+.award p{margin-top:10px;color:var(--muted)}
+@media (max-width:560px){.award{grid-template-columns:1fr}}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:16px;
-}
+.award-photos{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;margin-top:16px;align-items:stretch}
+.award-photos .fig{display:flex;flex-direction:column}
+.award-photos .fig .shot{flex:1;min-height:0;width:100%;object-fit:cover;object-position:center 20%}
+.award-photos .fig:first-child .shot{aspect-ratio:4/3;flex:none}
+@media (max-width:640px){.award-photos{grid-template-columns:1fr}.award-photos .fig .shot{aspect-ratio:4/3;flex:none}}
+/* leadership */
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:1px solid var(--line)}
+.lead-grid>div{padding:28px 28px 32px 0;border-bottom:1px solid var(--line)}
+.lead-grid .big{font-size:clamp(30px,3.6vw,46px);font-weight:600;letter-spacing:-.04em;line-height:1.05}
+.lead-grid .who{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.lead-grid p{margin-top:12px;color:var(--muted);font-size:16px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:0;margin-top:clamp(40px,6vw,72px);border-top:2px solid var(--fg)}
+.steps div{padding:22px 22px 0 0}
+.steps i{font-style:normal;font-size:13px;color:var(--accent);font-weight:600}
+.steps h3{font-size:30px;margin-top:6px}
+.steps p{font-size:15px;color:var(--muted);margin-top:10px}
 
-.card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
-padding:18px;
-border-radius:14px;
-transition:.25s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-border-color:#4f8cff;
-}
-
-.btn{
-display:inline-block;
-margin-top:10px;
-color:#4f8cff;
-text-decoration:none;
-font-size:13px;
-}
-
-.stat{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:20px;
-}
-
-.stat div{
-background:rgba(255,255,255,0.03);
-padding:10px 14px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.08);
-font-size:12px;
-}
+/* footer */
+.foot{background:var(--ink);color:var(--paper);padding-block:clamp(56px,8vw,104px) 36px}
+.foot h2{font-size:clamp(34px,5.6vw,76px);max-width:16ch}
+.foot p{color:var(--mute-on-ink);margin-top:20px}
+.links{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:32px;font-size:18px}
+.links a{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
+.links a:hover{color:var(--gold)}
+.legal{margin-top:72px;padding-top:20px;border-top:1px solid #2a3034;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;letter-spacing:.1em;color:var(--mute-on-ink)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row::before{transition:none}}
 </style>
 </head>
 <body>
 
 
-<nav>
-<b>I.K. Mamun</b>
-<div>
-<a href="index.html">Home</a>
-<a href="ocp.html">OCP</a>
-<a href="swap.html">Swap</a>
-<a href="olab.html">OLAB</a>
-<a href="cartup.html">Cartup</a>
-<a href="daraz.html">Daraz</a>
-</div>
-</nav>
+<header class="top band">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="IK. Mamun, home">IK.<span></span></a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#work">Work</a><a href="#daraz">Case studies</a><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-
-<div class="hero">
-<h1>Designing Digital Products at Scale</h1>
-<p>Design Leader with 10+ years across Daraz (Alibaba), Cartup, OLAB & FRIENDS CORP — building UX systems, product strategy & scalable design teams.</p>
-
-<span class="badge">UX • Product • Systems • Leadership</span>
-
-<div class="stat">
-<div>10+ Years Experience</div>
-<div>5+ Major Platforms</div>
-<div>Enterprise UX Systems</div>
-<div>Design Leadership</div>
-</div>
-</div>
-
-<div class="section">
-<h2>My Journey</h2>
-
-<div class="card">
-From graphic design beginnings → UX/UI evolution → product leadership roles across enterprise platforms.
+<main id="top">
+<div class="hero band">
+  <div class="wrap">
+    <p class="eyebrow">Product design portfolio &nbsp;/&nbsp; 2026</p>
+    <h1>IK. Mamun</h1>
+    <p class="role">Product Designer &amp; Design Leader</p>
+    <p class="lede">I design digital products for commerce and learning. My work spans research, interface design, design leadership and collaboration with developers.</p>
+    <div class="focus">
+      <div><b>Digital products</b><span>Commerce and marketplace interfaces</span></div>
+      <div><b>Learning platforms</b><span>Student and instructor journeys</span></div>
+      <div><b>Design leadership</b><span>Systems, teams and delivery</span></div>
+    </div>
+    <p class="tags">Ecommerce &nbsp;•&nbsp; Learning platforms &nbsp;•&nbsp; Marketplaces &nbsp;•&nbsp; Research / Design / Delivery</p>
+  </div>
 </div>
 
-<div class="card">
-Led design at Daraz (Alibaba Group), Cartup marketplace systems, and currently shaping FRIENDS CORP product ecosystem.
-</div>
+<section id="work" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Selected work</p><h2 style="margin-top:16px">A few projects, very different problems.</h2></div>
+      <p>These projects cover commerce, learning, marketplaces and brand systems. Each one shows the decisions I owned, the teams I worked with and the design evidence I can share.</p>
+    </div>
+    <div class="work">
+      <a class="row" href="#daraz" style="--c:var(--daraz)"><span class="n">01</span><div><h3>Daraz</h3><p class="meta">Head of Design (Marketing) · 2021–2022</p></div><p>I led an eight-person marketing design team, adapting a shared identity to local campaigns and collaborating on selected app touchpoints.</p><span class="go">Read the story ↗</span></a>
+      <a class="row" href="#cartup" style="--c:var(--cartup)"><span class="n">02</span><div><h3>Cartup</h3><p class="meta">E-commerce · Product design · 2024–present</p></div><p>Management wanted a new e-commerce product that would not feel like Daraz. I led the redesign with a two-person design team.</p><span class="go">View case study ↗</span></a>
+      <a class="row" href="#olab" style="--c:var(--olab)"><span class="n">03</span><div><h3>OLab</h3><p class="meta">Product Manager (Design) · 2022–2024</p></div><p>I designed the learning experience and spoke with students, mentors and business stakeholders about cost, guidance and relevant skills.</p><span class="go">Explore OLab ↗</span></a>
+      <a class="row" href="#swap" style="--c:var(--swap)"><span class="n">04</span><div><h3>SWAP</h3><p class="meta">Product Designer (Manager) · 2023</p></div><p>The redesign explored device condition, trade-in offers, checkout and separate journeys for three different customer goals.</p><span class="go">Explore SWAP ↗</span></a>
+      <a class="row" href="#offshore" style="--c:var(--offshore)"><span class="n">05</span><div><h3>Offshore Clipping</h3><p class="meta">Product Designer (Manager) · 2023</p></div><p>I redesigned the website experience around clearer services, visual proof, communication and a proposed pricing calculator.</p><span class="go">View the project ↗</span></a>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-Mentoring designers at Ostad, focusing on real-world UX thinking and portfolio transformation.
-</div>
-</div>
+<!-- DARAZ -->
+<section id="daraz" class="case band" style="--c:var(--daraz)">
+  <div class="wrap">
+    <div class="case-top">
+      <div><p class="eyebrow">01 &nbsp;/&nbsp; Daraz · Design strategy &amp; rebranding</p><h2>Rebranding Bangladesh.</h2></div>
+      <p>Leading eight designers through Daraz’s regional rebrand: 200–300 key visuals in about two months, adapted for Bangladesh.</p>
+    </div>
+    <div class="facts">
+      <div><b>8</b><span>designers on the Bangladesh team</span></div>
+      <div><b>200–300</b><span>key visuals (approximate)</span></div>
+      <div><b>~2 months</b><span>rollout window (approximate)</span></div>
+      <div><b>2021–22</b><span>Head of Design (Marketing)</span></div>
+    </div>
+    <div class="hero-img"><img class="shot" src="images/daraz-posters.jpg" width="1200" height="900" alt="Daraz rebrand campaign posters reading Watch, Play, Shop and Explore on an outdoor site" style="aspect-ratio:16/10;object-fit:cover;object-position:center 45%"></div>
+    <div class="gallery"><figure class="fig"><img class="shot" src="images/daraz-logo.jpg" width="1200" height="900" alt="Old Daraz logo with the Happy shopping tagline next to the new orange Daraz mark" loading="lazy"><figcaption>Before and after: the logo</figcaption></figure><figure class="fig"><img class="shot" src="images/daraz-app.jpg" width="1200" height="900" alt="Old and new Daraz app home screens side by side" loading="lazy"><figcaption>App design: old and new home screen</figcaption></figure><figure class="fig"><img class="shot" src="images/daraz-facebook.jpg" width="1200" height="694" alt="New Daraz brand on a Facebook page shown on a tablet" loading="lazy"><figcaption>Marketing work: social page and campaign post</figcaption></figure><figure class="fig"><img class="shot" src="images/daraz-launch.jpg" width="1600" height="900" alt="Daraz launch poster reading Eye it up for Insta on a street kiosk" loading="lazy" style="object-fit:cover"><figcaption>Launch campaign: outdoor poster in context</figcaption></figure></div>
+    <div class="body">
+      <span class="lab">My role</span>
+      <div class="txt"><p>I led an eight-person Bangladesh marketing design team and served as the local design point of contact while Daraz rolled out a regional rebrand. The identity was set across the region; my job was to make it work in Bangladesh, across marketing, campaigns and selected app touchpoints.</p></div>
+      <span class="lab">How the team worked</span>
+      <div class="txt"><p>Work ran on a Trello board. Three designers handled offline work, three handled online work, and urgent requests came to me and my associate team lead. That split kept campaign deadlines from competing with the larger rollout.</p></div>
+      <span class="lab">Decisions</span>
+      <div class="txt"><ul>
+        <li><b>Shape language: disagree and commit.</b> The regional shape language leaned toward Singapore and Malaysia and did not fit Bangladesh’s cultural diversity. No one on the local team, including me, agreed with it. We committed anyway, because consistency across countries mattered more than local preference.</li>
+        <li><b>Trade-off on scope.</b> With a tight deadline, a few secondary assets were delayed so the key visuals could ship on time.</li>
+        <li><b>Customer reaction.</b> Customers were initially unsettled by the new layout and design style. Over time the team and the customers came on board.</li>
+      </ul></div>
+      <span class="lab">Evidence</span>
+      <div class="txt"><p>Figures are approximate and come from my own records. Sales, conversion and brand-lift changes are not attributed to this work.</p></div>
+    </div>
+  </div>
+</section>
 
-<div class="section">
-<h2>Featured Case Studies</h2>
+<!-- CARTUP -->
+<section id="cartup" class="case band" style="--c:var(--cartup)">
+  <div class="wrap">
+    <div class="case-top">
+      <div><p class="eyebrow">02 &nbsp;/&nbsp; Cartup · E-commerce product design</p><h2>A shopping experience with its own identity.</h2></div>
+      <p>Management wanted a new e-commerce product that would not feel like Daraz. I led the redesign with a two-person design team.</p>
+    </div>
+    <div class="facts">
+      <div><b>2</b><span>designers on the team</span></div>
+      <div><b>Head of Design</b><span>my role</span></div>
+      <div><b>2024–</b><span>ongoing</span></div>
+    </div>
+    <div class="hero-img"><img class="shot" src="images/cartup-icon.jpg" width="1600" height="900" alt="The Cartup app icon on a phone home screen" style="aspect-ratio:16/9;object-fit:cover"></div>
+    <div class="gallery"><figure class="fig"><img class="shot" src="images/cartup-discovery.jpg" width="1200" height="900" alt="Cartup home screen with banners, vouchers and flash sale, next to an electronics fest campaign page" loading="lazy"><figcaption>Discovery: home and campaign screens</figcaption></figure><figure class="fig"><img class="shot" src="images/cartup-onboarding.jpg" width="1200" height="900" alt="Cartup splash screen and three login screen states" loading="lazy"><figcaption>Onboarding: splash and login</figcaption></figure><figure class="fig"><img class="shot" src="images/cartup-browsing.jpg" width="1200" height="900" alt="Cartup search history, empty search results and a product results list" loading="lazy"><figcaption>Product browsing: search, empty state and results</figcaption></figure></div>
+    <div class="body">
+      <span class="lab">The brief</span>
+      <div class="txt"><p>Cartup is a commerce product from a separate business, backed by a different development organization. The direction was clear: it had to stand apart from Daraz in look, tone and structure, while still being easy for shoppers to understand.</p></div>
+      <span class="lab">What I did</span>
+      <div class="txt"><p>I led product redesign across discovery, onboarding and product browsing, coordinating with business partners and the development team, and shaping the visual identity with the two designers.</p></div>
+      <span class="lab">Limits</span>
+      <div class="txt"><p>Some proposed redesign concepts were not implemented. The case study separates proposed UX from what is live. Qualitative preference feedback is not a controlled outcome measurement.</p></div>
+    </div>
+  </div>
+</section>
 
-<div class="grid">
+<!-- OLAB -->
+<section id="olab" class="case band" style="--c:var(--olab)">
+  <div class="wrap">
+    <div class="case-top">
+      <div><p class="eyebrow">03 &nbsp;/&nbsp; OLab · Online and offline learning</p><h2>Starting with the questions students actually asked.</h2></div>
+      <p>I designed the learning experience and spoke with students, mentors and business stakeholders about cost, guidance and relevant skills.</p>
+    </div>
+    <div class="facts">
+      <div><b>8</b><span>focus-group findings</span></div>
+      <div><b>33</b><span>learner survey responses</span></div>
+      <div><b>~70%</b><span>course non-completion (my estimate)</span></div>
+    </div>
+    <div class="hero-img"><img class="shot" src="images/olab-classroom.jpg" width="1600" height="900" alt="A learner at a computer in an OLab-branded classroom, with the instructor and other students in the background" style="aspect-ratio:16/9;object-fit:cover;object-position:center 40%"></div>
+    <div class="gallery"><figure class="fig"><img class="shot" src="images/olab-workshop-1.jpg" width="1080" height="810" alt="Three people around a table covered in green sticky notes during a research workshop" loading="lazy"><figcaption>Research: affinity mapping with sticky notes</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-survey.jpg" width="1200" height="900" alt="Survey result charts including a pie chart of local versus international institutions at 75.9 percent local" loading="lazy"><figcaption>Research: learner survey results</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-instructor.jpg" width="1200" height="900" alt="Instructor course-creation screens with basic information, advanced information and curriculum steps" loading="lazy"><figcaption>Instructor tools: create a course in three steps</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-workshop-2.jpg" width="1080" height="810" alt="A team ideating around a table with sticky notes and a whiteboard" loading="lazy"><figcaption>Research: ideation session</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-event.jpg" width="892" height="608" alt="A speaker presenting at the OLab Upskill career opportunities workshop on 10 August 2023" loading="lazy"><figcaption>Real-world activity: Upskill career workshop, 10 August 2023</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-team.jpg" width="1600" height="1200" alt="Four colleagues gathered around a laptop in the OLab office reviewing work" loading="lazy" style="object-fit:cover"><figcaption>Team: working session at the OLab office</figcaption></figure><figure class="fig"><img class="shot" src="images/olab-space.jpg" width="1600" height="900" alt="Staff and learners in an OLab-branded training room with the logo on a wall display" loading="lazy" style="object-fit:cover"><figcaption>Real-world activity: the OLab training space</figcaption></figure></div>
+    <div class="body">
+      <span class="lab">Research</span>
+      <div class="txt"><p>Focus groups with students, mentors and industry experts changed the original brief. Eight findings stood out:</p>
+        <div class="chips" style="margin-top:14px"><span>Mentor credibility</span><span>Cost barrier</span><span>Informal career advice</span><span>Course non-completion</span><span>Mid-career skill gap</span><span>After-course support gap</span><span>Outcome-led expectations</span><span>Expert recruitment</span></div>
+        <p class="note">The non-completion figure is an estimate recalled from the sessions, not measured data.</p></div>
+      <span class="lab">Survey</span>
+      <div class="txt"><p>33 learners described previous learning and mentor choices. 22 of 33 had taken an online course in the previous year, 22 of 29 pointed to a local institute or mentor, and 18 of 30 rated a course they had taken 4 or 5 out of 5. A small sample, useful as direction only.</p></div>
+      <span class="lab">Direction</span>
+      <div class="txt"><div class="grid2">
+        <div class="card"><b>Qualified mentors</b><p>Assess relevant professional work and teaching ability before assigning mentors.</p></div>
+        <div class="card"><b>Accessible training</b><p>Pricing tiers, shorter formats and clear costs for different budgets.</p></div>
+        <div class="card"><b>Support to completion</b><p>Progress dashboards and lesson access, with check-ins where delivered.</p></div>
+        <div class="card"><b>Career pathways</b><p>Connect training to portfolio work, practical projects and mid-career upskilling.</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-<b>OCP Case Study</b>
-<p>Product UX system design</p>
-<a class="btn" href="ocp.html">View Case Study</a>
-</div>
+<!-- SWAP -->
+<section id="swap" class="case band" style="--c:var(--swap)">
+  <div class="wrap">
+    <div class="case-top">
+      <div><p class="eyebrow">04 &nbsp;/&nbsp; SWAP · Marketplace UX redesign</p><h2>Buy. Sell. Swap, with clarity.</h2></div>
+      <p>A product and visual-system redesign for buying, selling and exchanging devices, 20 March to 30 June 2023.</p>
+    </div>
+    <div class="facts">
+      <div><b>7</b><span>buy steps in the earlier journey</span></div>
+      <div><b>10+</b><span>sell steps in the earlier journey</span></div>
+      <div><b>3</b><span>journeys: buy, sell, swap</span></div>
+    </div>
+    <div class="hero-img"><img class="shot" src="images/swap-hero.jpg" width="1600" height="900" alt="SWAP redesigned app home screen on a phone, with the new logo and the line Buy, Sell, Exchange just about anything" style="aspect-ratio:16/9;object-fit:cover"></div>
+    <div class="gallery"><figure class="fig"><img class="shot" src="images/swap-sell.jpg" width="1200" height="900" alt="Six SWAP sell-flow screens: product selection, product details and a three-step device evaluation ending in a review and estimated price" loading="lazy"><figcaption>Sell flow: product selection and device evaluation</figcaption></figure><figure class="fig"><img class="shot" src="images/swap-buy.jpg" width="1448" height="1086" alt="SWAP buy and swap flow in eight steps from home to order success, including product details, store, cart, payment and delivery" loading="lazy"><figcaption>Buy and swap: from home to order success</figcaption></figure><figure class="fig"><img class="shot" src="images/swap-before-after.jpg" width="1200" height="900" alt="SWAP website before and after, the old design next to the rebrand" loading="lazy"><figcaption>Before and after: old website and rebrand</figcaption></figure></div>
+    <div class="body">
+      <span class="lab">The problem</span>
+      <div class="txt"><p>SWAP served B2B and C2C users buying, selling and exchanging gadgets, bikes, cars and accessories. The earlier design made buying, selling and evaluating exchange offers harder than it needed to be. The business also reported a sales decline, without time-series data available to the design team.</p></div>
+      <span class="lab">Insight</span>
+      <div class="txt"><p>One marketplace, three intentions. Someone buying a phone, selling an old device or checking a swap offer needs a different next step, so the information architecture separated those jobs.</p></div>
+      <span class="lab">Research</span>
+      <div class="txt"><p>Over 40 people were approached; 33 answered two questions and 29 answered the one about used electronics, with 75.9% interested. Four needs came through: product selection, a usable interface, seller trust and authenticity, and budget-friendly options.</p></div>
+      <span class="lab">What I produced</span>
+      <div class="txt"><p>User flows, a FigJam mind map, wireframes, a blue visual system, and high-fidelity screens for sell, buy, swap, payment and order confirmation. Conversion, selling speed and sales recovery are not reported in this case study.</p></div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-<b>Swap Rebranding</b>
-<p>Marketplace redesign system</p>
-<a class="btn" href="swap.html">View Case Study</a>
-</div>
+<!-- OFFSHORE -->
+<section id="offshore" class="case band" style="--c:var(--offshore)">
+  <div class="wrap">
+    <div class="case-top">
+      <div><p class="eyebrow">05 &nbsp;/&nbsp; Offshore Clipping · Brand and web experience</p><h2>Making a service feel trustworthy.</h2></div>
+      <p>A brand and website redesign for a professional photo-editing service, with clearer discovery, pricing and communication. March to June 2023.</p>
+    </div>
+    <div class="hero-img"><div class="ph" role="img" aria-label="Image placeholder: Offshore Clipping: website homepage"><b>Image</b><span>Offshore Clipping: website homepage</span><small>Hero banner, wide · 1600×900</small></div></div>
+    <div class="gallery"><div class="ph" role="img" aria-label="Image placeholder: Brand guideline"><b>Image</b><span>Brand guideline</span><small>Logo, colour, type · 1200×900</small></div><div class="ph" role="img" aria-label="Image placeholder: Communication"><b>Image</b><span>Communication</span><small>Contact and specialist screens · 1200×900</small></div><div class="ph" role="img" aria-label="Image placeholder: Pricing and quote"><b>Image</b><span>Pricing and quote</span><small>Calculator concept · 1200×900</small></div></div>
+    <div class="body">
+      <span class="lab">The challenge</span>
+      <div class="txt"><p>Retention and conversion were concerns. The site had a dated brand, disorganized content, weak communication and no clear pricing, and visitors had to trust the service with their work before they could see what it offered.</p></div>
+      <span class="lab">Insights</span>
+      <div class="txt"><div class="grid2">
+        <div class="card"><b>Branding</b><p>Modern identity and recognizable visual standards.</p></div>
+        <div class="card"><b>Content</b><p>Clear descriptions, proof of work and organized services.</p></div>
+        <div class="card"><b>Contact</b><p>Multiple ways to reach a real support person.</p></div>
+        <div class="card"><b>Pricing</b><p>Upfront estimates, turnaround options and next steps.</p></div>
+      </div></div>
+      <span class="lab">What I designed</span>
+      <div class="txt"><p>A brand guideline with a blue-and-cyan logo and Montserrat typography, a homepage built around services, proof and a clear route to a quote, contact and specialist-selection concepts, and a real-time pricing calculator with an editable quote view. The calculator is a concept design with sample values.</p></div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-<b>OLAB LMS</b>
-<p>Learning platform UX system</p>
-<a class="btn" href="olab.html">View Case Study</a>
-</div>
+<!-- ABOUT -->
+<section id="about" class="about band">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 style="margin-top:16px">I started in graphic design. Now I work across products, brands and teams.</h2>
+        <p class="big">I’ve been working in design since 2010. My experience covers rebranding, visual identity, digital product design and creative leadership. I enjoy projects where the brand, the product and the people building them need to work together.</p>
+        <p class="big">A clear interface helps people find what they came for. A consistent brand helps them recognize who they are dealing with. I also care about the part after approval: discussing constraints, working with developers and making sure everyone understands the design direction.</p>
+      <figure class="fig portrait-fig"><img class="shot" src="images/portrait.jpg" width="1000" height="1289" alt="Portrait of IK. Mamun in a navy blazer and white shirt against a dark backdrop" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center 25%"></figure>
+      </div>
+      <ol class="tl">
+        <li><time>2010–2013</time><div><b>Graphic design</b><span>InfoCraft Ltd. · Prochito IMCL</span></div></li>
+        <li><time>2013–2015</time><div><b>Senior UI/UX Designer</b><span>RITL</span></div></li>
+        <li><time>2015–2022</time><div><b>Design leadership</b><span>Daraz · Alibaba Group</span></div></li>
+        <li><time>2022–2024</time><div><b>Product design and ownership</b><span>SWAP · OLab</span></div></li>
+        <li><time>2024–now</time><div><b>Head of Design</b><span>Cartup</span></div></li>
+        <li><time>2025–now</time><div><b>Design mentorship</b><span>Ostad</span></div></li>
+      </ol>
+    </div>
+    <div class="award">
+      <div class="num" aria-hidden="true">7</div>
+      <div><p class="eyebrow">Recognition · 21 June 2022</p><h3 style="margin-top:10px">Daraz Service Milestone Award</h3><p>Seven years of campaigns, launches and rebrands, celebrated on stage at Daraz.</p></div>
+    </div>
+    <div class="award-photos">
+      <figure class="fig"><img class="shot" src="images/award-group.jpg" width="1600" height="1200" alt="Five Daraz colleagues holding their service milestone trophies in front of the Daraz Service Milestone Awards backdrop" loading="lazy"><figcaption>Daraz Service Milestone Awards, 21 June 2022</figcaption></figure>
+      <figure class="fig"><img class="shot" src="images/award-solo.jpg" width="900" height="1200" alt="Portrait of an award recipient holding a trophy in front of the Daraz Service Milestone Awards backdrop" loading="lazy" style="object-position:center 30%"><figcaption>Receiving the award</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-</div>
-</div>
+<!-- LEADERSHIP -->
+<section id="leadership" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Design leadership</p><h2 style="margin-top:16px">I lead the work between direction and delivery.</h2></div>
+      <p>I connect business priorities, brand identity, product decisions and the people building the experience. The scope changes from project to project, but the need for clear decisions stays the same.</p>
+    </div>
+    <div class="lead-grid">
+      <div><p class="who" style="color:var(--daraz)">Daraz Bangladesh</p><div class="big">8-person team</div><p>Led the marketing design team and served as Bangladesh’s design point of contact during a regional rebrand.</p></div>
+      <div><p class="who" style="color:var(--cartup)">Cartup</p><div class="big">2 designers</div><p>Led product redesign, coordinating with business partners and a separate development organization.</p></div>
+      <div><p class="who" style="color:var(--olab)">OLab</p><div class="big">Design owner</div><p>Designed the learning experience directly, spoke with students, mentors and the owner, then coordinated with developers.</p></div>
+    </div>
+    <div class="steps">
+      <div><i>01</i><h3>Frame</h3><p>Clarify the business problem, the customers and what the team can influence.</p></div>
+      <div><i>02</i><h3>Align</h3><p>Discuss trade-offs with product, operations, marketing and engineering.</p></div>
+      <div><i>03</i><h3>Design</h3><p>Make decisions visible through flows, prototypes and brand and UI guidelines.</p></div>
+      <div><i>04</i><h3>Deliver</h3><p>Review feedback, refine details and document the handoff.</p></div>
+    </div>
+    <p class="note" style="margin-top:28px">This is how I describe my working approach across projects. It is a retrospective summary, not a claim that every team used the same formal process.</p>
+  </div>
+</section>
+</main>
 
-<div class="section">
-<h2>Figma Work</h2>
-
-<div class="grid">
-
-<div class="card"><b>OCP</b><br><a class="btn" href="https://www.figma.com/design/ASORS1L8S1rnKw85DiAPnX/OCP-x-Case-Study">Open</a></div>
-<div class="card"><b>Swap</b><br><a class="btn" href="https://www.figma.com/design/yBNtmfHbxCBzo3a6ICZwkz/Swap-x-Case-Study">Open</a></div>
-<div class="card"><b>OLAB</b><br><a class="btn" href="https://www.figma.com/design/T2sRi9oPnR6c7lYDm9uMWH/Olab---Learning-Management-System">Open</a></div>
-
-</div>
-</div>
-
-
-<div class="section" id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Email: mamunkhalil@gmail.com</p>
-<p>Location: Dhaka, Bangladesh</p>
-<p>Available for: Remote UX / Product Design Roles</p>
-</div>
-</div>
+<footer id="contact" class="foot band">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--gold)">What I bring to the team</p>
+    <h2 style="margin-top:16px">Product thinking, visual direction and practical judgment.</h2>
+    <p>Experience across teams of different sizes, from a two-person product team to eight designers in a regional rollout.</p>
+    <div class="links">
+      <a href="https://linkedin.com/in/mamunkhalil" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://behance.net/mamunkhalil" target="_blank" rel="noopener">Behance ↗</a>
+    </div>
+    <div class="legal"><span>IK. MAMUN / PRODUCT DESIGN PORTFOLIO 2026</span><span>DHAKA, BANGLADESH</span></div>
+  </div>
+</footer>
 
 <script>
-function openProtected(project){
-  let pass = prompt("Enter password for " + project);
-
-  const map = {
-    cartup: "cartup123",
-    daraz: "daraz123"
-  };
-
-  const urls = {
-    cartup: "https://www.figma.com/",
-    daraz: "https://www.figma.com/"
-  };
-
-  if(pass === map[project]){
-    window.open(urls[project], "_blank");
-  } else {
-    alert("Wrong password");
-  }
-}
+(function(){
+  var b=document.getElementById('menu'),n=document.getElementById('nav');
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false);}});
+})();
 </script>
 
 </body>
