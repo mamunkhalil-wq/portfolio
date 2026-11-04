@@ -183,6 +183,18 @@ section{padding-block:clamp(56px,8vw,112px)}
 .copy:hover{border-color:var(--gold)}
 .links{margin-top:20px!important}
 .fig-link{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:16px}.fig-link a{color:var(--c);text-decoration:none;border-bottom:1px solid var(--c);padding-bottom:2px;font-weight:600}.fig-link a:hover{opacity:.75}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+.btn{display:inline-block;padding:13px 22px;background:var(--gold);color:#0e1112;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--gold);border-radius:2px}
+.btn:hover{opacity:.88}.btn.ghost{background:none;color:inherit;border-color:currentColor}
+.help{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:clamp(28px,4vw,48px);border-top:2px solid var(--ink)}
+.help div{padding:22px 24px 24px 0}.help i{font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.help h3{font-size:19px;line-height:1.25;margin:10px 0 8px;font-weight:600;letter-spacing:-.01em}.help p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.faq{margin-top:clamp(24px,3vw,40px);border-top:1px solid var(--line);max-width:820px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"\2212"}.faq summary:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.faq p{margin:12px 0 0;color:var(--muted);line-height:1.6;max-width:68ch}.faq p a{color:inherit}
 .legal{margin-top:72px;padding-top:20px;border-top:1px solid #2a3034;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;letter-spacing:.1em;color:var(--mute-on-ink)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row::before{transition:none}}
 </style></head><body>
@@ -209,6 +221,7 @@ section{padding-block:clamp(56px,8vw,112px)}
       <div><b>Learning platforms</b><span>Student and instructor journeys</span></div>
       <div><b>Design leadership</b><span>Systems, teams and delivery</span></div>
     </div>
+    <p class="cta"><a class="btn" href="mailto:mamunkhalil@gmail.com?subject=Intro%20call%20with%20IK.%20Mamun&body=Hi%20Mamun%2C%20I%27d%20like%20to%20book%20a%2020-minute%20call.">Book a 20-minute call</a><a class="btn ghost" href="#work">See the work</a></p>
     <p class="tags">Ecommerce &nbsp;•&nbsp; Learning platforms &nbsp;•&nbsp; Marketplaces &nbsp;•&nbsp; Research / Design / Delivery</p>
   </div>
 </div>
@@ -430,6 +443,38 @@ section{padding-block:clamp(56px,8vw,112px)}
     <p class="note" style="margin-top:28px">This is how I describe my working approach across projects. It is a retrospective summary, not a claim that every team used the same formal process.</p>
   </div>
 </section>
+
+<!-- HOW I CAN HELP -->
+<section id="help" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">How I can help</p><h2 style="margin-top:16px">Where I add the most.</h2></div>
+      <p>The work I do best sits between business goals and the people building the product.</p>
+    </div>
+    <div class="help">
+      <div><i>01</i><h3>Lead and grow a design team</h3><p>Set direction, share the load, and keep quality steady across designers, from a team of two to eight.</p></div>
+      <div><i>02</i><h3>Shape product and brand decisions</h3><p>Turn business priorities into clear design choices, and make trade-offs visible early.</p></div>
+      <div><i>03</i><h3>Redesign commerce and learning products</h3><p>Marketplace, e-commerce and student-facing experiences, from research to handoff.</p></div>
+      <div><i>04</i><h3>Bridge design, business and engineering</h3><p>Coordinate with partners and separate development teams so the design that ships matches the design that was agreed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">FAQ</p><h2 style="margin-top:16px">Quick answers.</h2></div>
+    </div>
+    <div class="faq">
+      <details><summary>What size teams have you led?</summary><p>Eight designers on the Daraz Bangladesh marketing team, and two designers on the Cartup product team. At OLab I was the design owner and worked directly on the learning experience.</p></details>
+      <details><summary>What kinds of products do you design?</summary><p>Commerce and marketplace interfaces, learning platforms, and the brand and campaign work around them.</p></details>
+      <details><summary>How do you work with business and engineering?</summary><p>I frame the problem, align on trade-offs with product, operations, marketing and engineering, make decisions visible through flows and prototypes, then document the handoff.</p></details>
+      <details><summary>Are the numbers in the case studies exact?</summary><p>No. Figures marked approximate come from my own records. I do not attribute sales, conversion or brand-lift changes to this work.</p></details>
+      <details><summary>What is the best way to reach you?</summary><p>Email me at <a href="mailto:mamunkhalil@gmail.com">mamunkhalil@gmail.com</a>, or <a href="mailto:mamunkhalil@gmail.com?subject=Intro%20call%20with%20IK.%20Mamun&body=Hi%20Mamun%2C%20I%27d%20like%20to%20book%20a%2020-minute%20call.">book a 20-minute call</a>. LinkedIn works too.</p></details>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer id="contact" class="foot band">
@@ -437,6 +482,7 @@ section{padding-block:clamp(56px,8vw,112px)}
     <p class="eyebrow" style="color:var(--gold)">What I bring to the team</p>
     <h2 style="margin-top:16px">Product thinking, visual direction and practical judgment.</h2>
     <p>Experience across teams of different sizes, from a two-person product team to eight designers in a regional rollout.</p>
+    <p class="cta" style="margin-top:28px"><a class="btn" href="mailto:mamunkhalil@gmail.com?subject=Intro%20call%20with%20IK.%20Mamun&body=Hi%20Mamun%2C%20I%27d%20like%20to%20book%20a%2020-minute%20call.">Book a 20-minute call</a></p>
     <p class="mail"><span class="mail-l">Email</span><a id="mail" href="mailto:mamunkhalil@gmail.com">mamunkhalil@gmail.com</a><button type="button" id="copy" class="copy">Copy</button></p>
     <div class="links">
       <a href="https://linkedin.com/in/mamunkhalil" target="_blank" rel="noopener">LinkedIn ↗</a>
