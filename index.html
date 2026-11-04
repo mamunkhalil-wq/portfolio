@@ -197,6 +197,13 @@ section{padding-block:clamp(56px,8vw,112px)}
 .faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--muted);font-weight:400}
 .faq details[open] summary::after{content:"\2212"}.faq summary:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .faq p{margin:12px 0 0;color:var(--muted);line-height:1.6;max-width:68ch}.faq p a{color:inherit}
+.brands{background:#fff;color:#536575;padding-block:clamp(28px,4vw,44px);border-bottom:1px solid #e6e2d9}
+.brands .eyebrow{color:#536575}
+.logos{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px clamp(28px,5vw,64px)}
+.logos li{display:flex;align-items:center}
+.logos img{height:clamp(28px,3.4vw,42px);width:auto;max-width:170px;object-fit:contain;filter:grayscale(1);opacity:.8;mix-blend-mode:multiply;transition:filter .2s,opacity .2s}
+.logos li:hover img{filter:none;opacity:1}
+@media (max-width:640px){.logos{justify-content:flex-start;gap:20px 36px}.logos img{height:26px;max-width:110px}}
 .legal{margin-top:72px;padding-top:20px;border-top:1px solid #2a3034;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;letter-spacing:.1em;color:var(--mute-on-ink)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.row::before{transition:none}}
 </style></head><body>
@@ -227,6 +234,13 @@ section{padding-block:clamp(56px,8vw,112px)}
     <p class="tags">Ecommerce &nbsp;•&nbsp; Learning platforms &nbsp;•&nbsp; Marketplaces &nbsp;•&nbsp; Research / Design / Delivery</p>
   </div>
 </div>
+
+<section class="brands band" aria-label="Brands I have worked with">
+  <div class="wrap">
+    <p class="eyebrow">Brands I’ve worked with</p>
+    <ul class="logos"><li><img src="images/logo-daraz.png" width="408" height="160" alt="Daraz" loading="lazy"></li><li><img src="images/logo-cartup.png" width="578" height="160" alt="Cartup" loading="lazy"></li><li><img src="images/logo-pathao.png" width="478" height="160" alt="Pathao" loading="lazy"></li><li><img src="images/logo-olab.png" width="807" height="160" alt="OLab" loading="lazy"></li><li><img src="images/logo-swap.png" width="500" height="160" alt="SWAP" loading="lazy"></li><li><img src="images/logo-save-the-children.png" width="784" height="160" alt="Save the Children" loading="lazy"></li></ul>
+  </div>
+</section>
 
 <section id="work" class="band">
   <div class="wrap">
