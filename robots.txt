@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mamunkhalil-wq.github.io/portfolio/sitemap.xml
